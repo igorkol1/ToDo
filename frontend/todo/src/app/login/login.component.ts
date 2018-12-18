@@ -9,6 +9,8 @@ export class LoginComponent implements OnInit {
 
   username = "testUserName"
   password = "testPassword"
+  errorMessage = "Invalid credentials"
+  invalidLogin : boolean = false
 
   constructor() { }
 
@@ -16,8 +18,14 @@ export class LoginComponent implements OnInit {
   }
 
   handleLogin(){
-    console.log(this.username)
-    console.log(this.password)
+    // console.log(this.username)
+    // console.log(this.password)
+    if(this.username==="username" && this.password==="password"){
+      this.invalidLogin=false
+    }else{
+      this.invalidLogin=true
+    }
+    console.log(this.invalidLogin)
   }
 
 }
