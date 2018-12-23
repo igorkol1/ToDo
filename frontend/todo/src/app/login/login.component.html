@@ -1,14 +1,17 @@
-<h1>Login</h1>
+<div class="container" style="height:60vh;">
+  <div class="h-100 d-flex justify-content-center align-items-center">
 
-<div class="container">
-  <div class="alert alert-warning" *ngIf='invalidLogin' >{{errorMessage}}</div>
+    <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div class="form-row">
+      <div class="col">
+        <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Login">
+      </div>
+      <div class="col">
+        <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password">
+      </div>
+      <button (click)=handleLogin() class="btn btn-success">Login</button>
+    </div>
 
-  <div>
-    User Name : <input type="text" name="username" [(ngModel)]="username">
-    Password  : <input type="password" name="password" [(ngModel)]="password">
-    <button (click)=handleLogin() class="btn btn-success">Login</button>
   </div>
+
 </div>
-
-
-
