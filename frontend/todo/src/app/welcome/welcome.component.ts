@@ -22,7 +22,13 @@ message = 'Welcome message'
 
   getWelcomeMessage(){
     console.log(this.service.executeHelloWordBeanService())
-    this.service.executeHelloWordBeanService().subscribe()
+    this.service.executeHelloWordBeanService().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    )
+  }
+
+  handleSuccessfulResponse(response){
+    console.log(response)
   }
 
 }
