@@ -1,4 +1,4 @@
-package com.todos.backend.todosbackend;
+package com.todos.backend.todosbackend.helloWorld;
 
 public class HelloWordBean {
 
