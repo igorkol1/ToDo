@@ -9,4 +9,8 @@
     <button (click)="getWelcomeMessage()" class="btn btn-secondary">Get welcome message</button>
   </div>
 
-
+  <div class="container" *ngIf="welcomeMessageFromService">
+    <h2>Your customize welcome message</h2>
+    {{welcomeMessageFromService}}  
+  </div>
+  
