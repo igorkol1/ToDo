@@ -14,7 +14,7 @@ public class TodoHardcodedService {
 
     static {
         todos.add(new Todo(++idCounter, "username", "Learn Angular", new Date(), false));
-        todos.add(new Todo(++idCounter, "username", "Learn Spring Boot", new Date(), false));
+        todos.add(new Todo(++idCounter, "username", "Learn Spring Boot", new Date(), true));
         todos.add(new Todo(++idCounter, "username", "Custom application", new Date(), false));
     }
 
