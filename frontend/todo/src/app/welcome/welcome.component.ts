@@ -11,6 +11,7 @@ import { error } from 'util';
 export class WelcomeComponent implements OnInit {
 
 message = 'Welcome message'
+name 
 welcomeMessageFromService:string
 
   constructor(
@@ -19,12 +20,13 @@ welcomeMessageFromService:string
 
   ngOnInit() {
     this.message = 'Welcome '+this.route.snapshot.params['name']
+    this.name = this.route.snapshot.params['name']
     console.log(this.message)
   }
 
   getWelcomeMessage(){
     console.log(this.service.executeHelloWordBeanService())
-    this.service.executeHelloWordBeanService().subscribe(
+    this.service.executeHelloWordBeanServiceWithPathVariable(this.name).subscribe(
       response => this.handleSuccessfulResponse(response),
       error => this.handleErrorResponse(error)
     )
