@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class TodoHardcodedService {
@@ -20,5 +21,22 @@ public class TodoHardcodedService {
 
     public List<Todo> findAll() {
         return todos;
+    }
+
+    public Todo deleteById(long id){
+        Todo todo = findById(id);
+        if(todo!=null){
+            todos.remove(todo);
+            return todo;
+        }
+        return null;
+    }
+
+    private Todo findById(long id) {
+        Optional<Todo> optionalTodo=todos.stream().filter(x->x.getId()==id).findFirst();
+        if(optionalTodo.isPresent()){
+            return optionalTodo.get();
+        }
+        return null;
     }
 }

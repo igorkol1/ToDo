@@ -1,10 +1,8 @@
 package com.todos.backend.todosbackend.todo;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -18,5 +16,14 @@ public class TodoResource {
     @GetMapping("/users/{user_name}/todos")
     public List<Todo> getAllTodos(@PathVariable String user_name){
         return todoService.findAll();
+    }
+
+    @DeleteMapping("/users/{user_name}/todos/{id}")
+    public ResponseEntity<Void> deleteTodo(@PathVariable String user_name,@PathVariable long id){
+        if(todoService.deleteById(id)!=null){
+            return ResponseEntity.status(200).build();
+        }else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }
