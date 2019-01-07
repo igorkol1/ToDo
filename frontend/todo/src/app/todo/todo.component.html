@@ -1,3 +1,12 @@
-<p>
-  todo works!
-</p>
+<div class="container" style="height:50vh;">
+  <div class="h-100 d-flex justify-content-center align-items-center">
+    <div class="form col-md-6">
+        <textarea class="form-control todo-field" placeholder="Name"></textarea>
+        <input class="form-control todo-field" type="date" name="targetDate" required="required" placeholder="Date">
+        <div class="conteiner justify-content-center" style="text-align:center;">
+            <button class="btn btn-success btn-lg" (click)="saveTodo()">Save</button>
+            <button class="btn btn-secondary btn-lg" (click)="backToList()">Back</button>
+        </div>
+    </div>
+  </div>
+</div>
