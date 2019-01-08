@@ -32,7 +32,7 @@ public class TodoHardcodedService {
         return null;
     }
 
-    private Todo findById(long id) {
+    public Todo findById(long id) {
         Optional<Todo> optionalTodo=todos.stream().filter(x->x.getId()==id).findFirst();
         if(optionalTodo.isPresent()){
             return optionalTodo.get();
