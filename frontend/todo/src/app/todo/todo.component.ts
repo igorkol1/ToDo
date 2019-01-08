@@ -21,6 +21,7 @@ todo: Todo
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id']
+    this.todo = new Todo(1,'',false,new Date)
     this.todoService.retriveTodo('username',this.id).subscribe(
       data => this.todo = data,
       error => console.log(error.error.message) 
