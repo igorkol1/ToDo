@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoDataService } from '../service/data/todo-data.service';
 import { Todo } from '../list-todos/list-todos.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { error } from '@angular/compiler/src/util';
 
 @Component({
@@ -15,6 +15,7 @@ id:number
 todo: Todo
 
   constructor(
+    private router:Router,
     private route:ActivatedRoute,
     private todoService : TodoDataService
   ) { }
@@ -26,6 +27,10 @@ todo: Todo
       data => this.todo = data,
       error => console.log(error.error.message) 
     )
+  }
+
+  backToList(){
+    this.router.navigate(["todos"])
   }
 
 }
