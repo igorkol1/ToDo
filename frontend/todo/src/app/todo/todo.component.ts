@@ -29,6 +29,16 @@ todo: Todo
     )
   }
 
+  saveTodo(){
+    this.todoService.updateTodo('username',this.id,this.todo).subscribe(
+      data => {
+        this.router.navigate(["todos"])
+        console.log(data)}
+        ,
+      error => console.log(error.error.message) 
+    )
+  }
+
   backToList(){
     this.router.navigate(["todos"])
   }

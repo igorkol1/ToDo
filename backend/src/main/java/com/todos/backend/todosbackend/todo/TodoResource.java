@@ -1,9 +1,12 @@
 package com.todos.backend.todosbackend.todo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -31,4 +34,18 @@ public class TodoResource {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @PutMapping("/users/{user_name}/todos/{id}")
+    public ResponseEntity<Todo> updateTodo(@PathVariable String user_name,@PathVariable long id, @RequestBody Todo todo){
+        Todo updatedTodo = todoService.save(todo);
+        return new ResponseEntity<Todo>(todo,HttpStatus.valueOf(200));
+    }
+
+    @PostMapping("/users/{user_name}/todos")
+    public ResponseEntity<Void> updateTodo(@PathVariable String user_name, @RequestBody Todo todo){
+        Todo createdTodo = todoService.save(todo);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdTodo.getId()).toUri();
+        return ResponseEntity.created(uri).build()
+    }
+
 }
