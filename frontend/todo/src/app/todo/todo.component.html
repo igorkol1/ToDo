@@ -1,12 +1,12 @@
 <div class="container" style="height:50vh;">
   <div class="h-100 d-flex justify-content-center align-items-center">
-    <div class="form col-md-6">
-        <textarea [(ngModel)]="todo.description" class="form-control"></textarea>
+    <form class="col-md-6" (ngSubmit)="saveTodo()">
+        <textarea [(ngModel)]="todo.description" class="form-control" name="description"></textarea>
         <input [ngModel]="todo.targetDate | date:'yyyy-MM-dd'" (ngModelChange)="todo.targetDate = $event" class="form-control todo-field" type="date" name="targetDate" required="required">
         <div class="conteiner justify-content-center" style="text-align:center;">
-            <button class="btn btn-success btn-lg" (click)="saveTodo()">Save</button>
+            <button class="btn btn-success btn-lg">Save</button>
             <button class="btn btn-secondary btn-lg" (click)="backToList()">Back</button>
         </div>
-    </div>
+    </form>
   </div>
 </div>
