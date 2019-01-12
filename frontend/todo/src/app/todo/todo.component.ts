@@ -22,21 +22,31 @@ todo: Todo
 
   ngOnInit() {
     this.id = this.route.snapshot.params['id']
-    this.todo = new Todo(1,'',false,new Date)
-    this.todoService.retriveTodo('username',this.id).subscribe(
-      data => this.todo = data,
-      error => console.log(error.error.message) 
-    )
+    this.todo = new Todo(this.id,'',false,new Date)
+    if(this.id!=-1){
+      this.todoService.retriveTodo('username',this.id).subscribe(
+        data => this.todo = data,
+        error => console.log(error.error.message) 
+      )
+    }
   }
 
   saveTodo(){
-    this.todoService.updateTodo('username',this.id,this.todo).subscribe(
-      data => {
-        this.router.navigate(["todos"])
-        console.log(data)}
-        ,
-      error => console.log(error.error.message) 
-    )
+    if(this.id===-1){
+      this.todoService.createTodo('username',this.todo).subscribe(
+        data => {
+          this.router.navigate(["todos"])
+          console.log(data)},
+        error => console.log(error.error.message) 
+      )
+    }else{
+      this.todoService.updateTodo('username',this.id,this.todo).subscribe(
+        data => {
+          this.router.navigate(["todos"])
+          console.log(data)},
+        error => console.log(error.error.message) 
+      )
+    }
   }
 
   backToList(){
