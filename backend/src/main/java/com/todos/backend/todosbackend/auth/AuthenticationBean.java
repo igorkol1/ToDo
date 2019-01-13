@@ -1,10 +1,12 @@
-package com.todos.backend.todosbackend.helloWorld;
+package com.todos.backend.todosbackend.auth;
 
-public class HelloWordBean {
+public class AuthenticationBean {
+
+
 
     private String message;
 
-    public HelloWordBean(String message) {
+    public AuthenticationBean(String message) {
         this.message = message;
     }
 
