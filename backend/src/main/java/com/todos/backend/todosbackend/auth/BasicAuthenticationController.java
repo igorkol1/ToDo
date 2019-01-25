@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BasicAuthenticationController {
 
-    @GetMapping(path = "/basicauth")
+    @GetMapping(path = "/jpa/basicauth")
     public AuthenticationBean authMessage() {
         return new AuthenticationBean("You are authenticated");
     }
