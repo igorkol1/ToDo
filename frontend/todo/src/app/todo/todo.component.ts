@@ -32,7 +32,7 @@ todo: Todo
   }
 
   saveTodo(){
-    if(this.id===-1){
+    if(this.id==-1){
       this.todoService.createTodo('username',this.todo).subscribe(
         data => {
           this.router.navigate(["todos"])
