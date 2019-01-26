@@ -1,4 +1,4 @@
-package com.todos.backend.todosbackend.auth;
+package auth;
 
 public class AuthenticationBean {
 
