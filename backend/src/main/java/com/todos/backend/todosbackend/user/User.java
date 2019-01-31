@@ -15,6 +15,8 @@ public class User {
     private String password;
     private String role;
 
+    protected User(){};
+
     public User(Long id, String username, String password, String role) {
         this.id = id;
         this.username = username;
