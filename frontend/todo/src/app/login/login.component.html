@@ -8,15 +8,15 @@
   
   <div class="h-100 d-flex justify-content-center align-items-center">
 
-    <div class="form-row">
+    <form #loginForm="ngForm" class="form-row">
       <div class="col">
-        <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Login">
+        <input type="text" class="form-control" name="username" [(ngModel)]="username" placeholder="Login" required>
       </div>
       <div class="col">
-        <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password">
+        <input type="password" class="form-control" name="password" [(ngModel)]="password" placeholder="Password" required>
       </div>
-      <button (click)=handleJWTLogin() class="btn btn-success">Login</button>
-    </div>
+      <button (click)=handleJWTLogin() class="btn btn-success" [disabled]="loginForm.invalid">Login</button>
+    </form>
 
   </div>
 
